@@ -15,6 +15,10 @@
 	z-index: 0;
 }
 
+.hero-title { font-size: var(--fs-hero); }
+#about h2, #projects h2, #contact h2 { font-size: var(--fs-h2); }
+.lead { font-size: var(--fs-lead); }
+
 /* Floating shapes */
 .floating-shapes {
 	position: absolute;

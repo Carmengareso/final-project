@@ -1,1 +1,19 @@
-.DS_store
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Env
+.env
+
+# Dependencies (por si en algún momento añades tooling)
+node_modules/
+
+# Build output (si algún día generas dist)
+dist/
+build/

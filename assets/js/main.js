@@ -100,7 +100,8 @@ function initHeroAnimations() {
 	 * - 'elastic.out' — bouncy overshoot
 	 * - 'back.out' — slight overshoot and settle
 	 */
-	const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+	// Make hero animation slower (more dramatic)
+const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
 	/**
 	 * TIMELINE SEQUENCE WITH POSITION PARAMETERS
@@ -118,12 +119,11 @@ function initHeroAnimations() {
 	 * where elements appear to flow in rather than pop one by one.
 	 */
 	heroTl
-		// First: Main title slides up and fades in
-		.from('.hero-title', {
-			y: 100,           // Start 100px below final position
-			opacity: 0,       // Start invisible
-			duration: 1,      // Take 1 second to animate
-		})
+    .from('.hero-title', {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,  // Changed from 1 to 1.5
+    })
 		// Second: Subtitle follows (overlaps by 0.6s for smooth flow)
 		.from(
 			'.hero-subtitle',
@@ -499,14 +499,27 @@ function initSmoothScroll() {
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+	// THEME TOGGLE (Dark/Light) — Trend feature
+	const toggleBtn = document.getElementById('themeToggle');
+	const root = document.documentElement;
+
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme) root.setAttribute('data-theme', savedTheme);
+
+	toggleBtn?.addEventListener('click', () => {
+		const current = root.getAttribute('data-theme') || 'dark';
+		const next = current === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		localStorage.setItem('theme', next);
+	});
+
+	// Existing GSAP init
 	initHeroAnimations();
 	initScrollReveals();
 	initSkillBars();
 	initProjectCards();
 	initNavbarScroll();
 	initSmoothScroll();
-
-	console.log('🚀 Grade 2 Demo: Bootstrap + GSAP animations initialized');
 
 	// Refresh ScrollTrigger after all images load
 	window.addEventListener('load', () => {

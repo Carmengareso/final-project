@@ -8,13 +8,20 @@
    1. CSS Custom Properties
    -------------------------------------------------------------------------- */
 :root {
-	--bs-body-bg: #0f0f0f;
-	--bs-body-color: #f5f5f5;
-	--bs-primary: #6366f1;
+	--bs-body-bg: #0f0f0f;        /* Main background */
+	--bs-body-color: #f5f5f5;     /* Text color */
+	--bs-primary: #6366f1;        /* Primary brand color */
 	--bs-primary-rgb: 99, 102, 241;
 
-	/* Custom tokens */
-	--color-bg-alt: #1a1a1a;
-	--color-muted: #6c757d;
-	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--color-bg-alt: #1a1a1a;      /* Alternate background */
+	--color-muted: #6c757d;       /* Muted text */
+
+	/* Bootstrap muted text for dark theme */
+	--bs-secondary-color: rgba(255, 255, 255, 0.65);
+	--bs-secondary-color-rgb: 255, 255, 255;
+
+	/* Fluid typography */
+--fs-hero: clamp(2.4rem, 6vw, 4.5rem);
+--fs-h2: clamp(1.8rem, 3.5vw, 3rem);
+--fs-lead: clamp(1.05rem, 1.4vw, 1.25rem);
 }

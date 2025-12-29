@@ -22,5 +22,11 @@
 	.project-card:hover .card-img-wrapper img {
 		transform: none;
 	}
+	
+	a:focus-visible,
+button:focus-visible {
+	outline: 2px solid var(--bs-primary);
+	outline-offset: 4px;
+}
 }
 
