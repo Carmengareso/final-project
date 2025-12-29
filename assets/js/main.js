@@ -134,6 +134,7 @@ const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 			},
 			'-=0.6'  // Start 0.6s before title animation ends
 		)
+		
 		// Third: CTA buttons (overlaps by 0.4s)
 		.from(
 			'.hero-cta',

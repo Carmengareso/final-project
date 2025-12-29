@@ -15,9 +15,18 @@
 	z-index: 0;
 }
 
-.hero-title { font-size: var(--fs-hero); }
-#about h2, #projects h2, #contact h2 { font-size: var(--fs-h2); }
-.lead { font-size: var(--fs-lead); }
+.hero-title {
+	font-size: clamp(2rem, 4.5vw, 3.2rem);
+	letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+	opacity: 0.8;
+}
+
+.lead {
+	font-size: 1rem;
+}
 
 /* Floating shapes */
 .floating-shapes {
@@ -58,14 +67,6 @@
 	left: 30%;
 }
 
-.hero-title {
-	letter-spacing: -0.03em;
-}
-
-.hero-subtitle {
-	opacity: 0.8;
-}
-
 /* Scroll indicator */
 .scroll-indicator {
 	z-index: 10;
@@ -93,7 +94,8 @@
 }
 
 @keyframes scrollMouse {
-	0%, 100% {
+	0%,
+	100% {
 		opacity: 1;
 		transform: translateX(-50%) translateY(0);
 	}
@@ -103,72 +105,61 @@
 	}
 }
 
+/* Headings (smaller, minimal) */
+h2.display-5 {
+	font-size: clamp(1.4rem, 2.4vw, 2rem);
+	letter-spacing: -0.01em;
+}
+
 /* --------------------------------------------------------------------------
    5. About Section
    -------------------------------------------------------------------------- */
-.about {
-  padding-bottom: 8rem;
-}
-   .about-image {
-	position: relative;
-}
-
-.about-image::before {
-	content: '';
-	position: absolute;
-	inset: 20px -20px -20px 20px;
-	border: 2px solid var(--bs-primary);
-	border-radius: 1rem;
-	z-index: -1;
+/* IMPORTANT: this targets your real HTML (#about), so spacing will work */
+#about {
+	 padding-top: 8rem;    /* más aire arriba */
+	padding-bottom: 8rem; /* increase if you want more air */
 }
 
-.about-image img {
-	position: relative;
-	z-index: 1;
+.about-banner-img {
+	height: 220px;
+	object-fit: cover;
+	object-position: center;
 }
 
-.about-banner-img{
-  height: 220px;            /* “estrecha” */
-  object-fit: cover;        /* recorta sin deformar */
-  object-position: center;  /* centra el recorte */
+/* Justified text (as requested) */
+.about-text {
+	text-align: justify;
+	text-justify: inter-word;
+	font-size: 0.95rem;
+	line-height: 1.75;
 }
 
-/* Texto justificado (como pediste) */
-.about-text{
-  text-align: justify;
-  text-justify: inter-word;
-   font-size: 0.95rem;     /* un poco más pequeño */
-  line-height: 1.75;      /* más aire entre líneas */
-}
-
-/* Skills progress bars */
-.progress {
-	background-color: rgba(255, 255, 255, 0.1);
-	border-radius: 4px;
+/* --------------------------------------------------------------------------
+   6. Skills
+   -------------------------------------------------------------------------- */
+.skills-minimal .progress {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 999px;
 	overflow: hidden;
 }
-.skills-minimal .progress{
-  background: rgba(255,255,255,.08);
-  border-radius: 999px;
-  overflow: hidden;
+
+.skills-minimal .progress-bar {
+	border-radius: 999px;
 }
 
-.skills-minimal .progress-bar{
-  border-radius: 999px;
-}
-
+/* Keep progress fill */
 .progress-bar {
 	background: linear-gradient(90deg, var(--bs-primary), #818cf8);
-	border-radius: 4px;
 	width: 0; /* Animated by GSAP */
 }
 
 /* --------------------------------------------------------------------------
-   6. Projects Section
+   7. Projects Section
    -------------------------------------------------------------------------- */
 .project-card {
 	background: var(--color-bg-alt);
-	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	border-radius: 0; /* “flush” look */
 	overflow: hidden;
 	transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
 }
@@ -180,12 +171,14 @@
 
 .card-img-wrapper {
 	aspect-ratio: 4/3;
+	overflow: hidden;
 }
 
 .card-img-wrapper img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	border-radius: 0;
 	transition: transform 0.6s var(--ease-out);
 }
 
@@ -200,6 +193,13 @@
 .card-title {
 	margin-bottom: 0.75rem;
 }
+.project-card .card-body{
+  text-align: center;
+}
+
+.project-card .card-body .d-flex{
+  justify-content: center;
+}
 
 /* Badge styling */
 .bg-primary-subtle {
@@ -211,7 +211,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. Contact Section
+   8. Contact / Social
    -------------------------------------------------------------------------- */
 .social-links a {
 	transition: color 0.3s, transform 0.3s;
@@ -221,9 +221,26 @@
 	color: var(--bs-primary) !important;
 	transform: translateY(-3px);
 }
+.contact-inline{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
+.contact-inline a{
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+}
+
+.contact-inline a:hover{
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 /* --------------------------------------------------------------------------
-   8. Buttons
+   9. Buttons (styling; rounding is handled in base.css)
    -------------------------------------------------------------------------- */
 .btn-primary {
 	background: var(--bs-primary);
@@ -250,8 +267,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   9. Utilities
+   10. Utilities
    -------------------------------------------------------------------------- */
 .z-1 {
 	z-index: 1;
 }
+.gsap-reveal { opacity: 1; }
