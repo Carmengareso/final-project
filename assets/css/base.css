@@ -1,38 +1,94 @@
 /* ==========================================================================
-   Grade 2: Bootstrap + GSAP Portfolio Demo
-   Custom styles extending Bootstrap 5
+   BASE STYLES
+   Variables, resets, and base typography
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. CSS Custom Properties
    -------------------------------------------------------------------------- */
+:root {
+	--bs-body-bg: #0f0f0f;
+	--bs-body-color: #f5f5f5;
+	--bs-primary: hwb(302 12% 0%);
+	--bs-primary-rgb: 99, 102, 241;
+
+	--color-bg-alt: #1a1a1a;
+	--color-muted: #6c757d;
+
+	/* Bootstrap muted text for dark theme */
+	--bs-secondary-color: rgba(255, 255, 255, 0.65);
+	--bs-secondary-color-rgb: 255, 255, 255;
+
+	/* Fluid typography */
+	--fs-hero: clamp(2.4rem, 6vw, 4.5rem);
+	--fs-h2: clamp(1.8rem, 3.5vw, 3rem);
+	--fs-lead: clamp(1.05rem, 1.4vw, 1.25rem);
+
+   --font-body: 'Urbanist', system-ui, sans-serif;
+  --font-headings: 'Space Grotesk', system-ui, sans-serif;
+  --font-hero-name: 'Playfair Display', serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base Body Styles
+   -------------------------------------------------------------------------- */
 body {
 	background-color: var(--bs-body-bg);
 	color: var(--bs-body-color);
-	 font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+	 font-family: var(--font-body);
 	line-height: 1.6;
+  
+}
 
-	/* Rounded buttons */
+
+/* --------------------------------------------------------------------------
+   3. Button Styles (Rounded Pills)
+   -------------------------------------------------------------------------- */
 .btn {
-  border-radius: 999px; /* pill */
+	border-radius: 999px; /* pill shape */
 }
 
 .btn-lg {
-  border-radius: 999px;
-}
+	border-radius: 999px;
 }
 
-/* Extra vertical spacing for clean sections */
+/* --------------------------------------------------------------------------
+   4. Extra Vertical Spacing Utilities
+   -------------------------------------------------------------------------- */
 .py-6 {
-  padding-top: 14rem;
-  padding-bottom: 14rem;
+	padding-top: 8rem;
+	padding-bottom: 8rem;
 }
 
 .py-7 {
-  padding-top: 16rem;
-  padding-bottom: 16rem;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
 }
-.pb-3{ padding-bottom: 1rem; }
-.pb-4{ padding-bottom: 1.5rem; }
-.pt-5{ padding-top: 3rem; }
-.pt-6{ padding-top: 4rem; }
+
+.pb-3 {
+	padding-bottom: 1rem;
+}
+
+.pb-4 {
+	padding-bottom: 1.5rem;
+}
+
+.pt-5 {
+	padding-top: 3rem;
+}
+
+.pt-6 {
+	padding-top: 4rem;
+}
+
+@media (max-width: 991.98px) {
+	.py-6 {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+	
+	.py-7 {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
+}
